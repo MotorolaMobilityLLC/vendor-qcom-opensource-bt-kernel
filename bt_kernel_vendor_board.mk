@@ -9,9 +9,9 @@ ifeq ($(TARGET_USES_QMAA),true)
            BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/btfmcodec.ko \
                                $(KERNEL_MODULES_OUT)/bt_fm_swr.ko
         endif
-        ifeq (,$(filter niobe anorak61 neo61 pitti seraph blair, $(TARGET_BOARD_PLATFORM)))
-           BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
-        endif
+        #ifeq (,$(filter niobe anorak61 neo61 pitti seraph blair, $(TARGET_BOARD_PLATFORM)))
+        #   BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
+        #endif
         BOARD_VENDOR_KERNEL_MODULES += $(BT_KERNEL_DRIVER)
      endif
   endif
@@ -23,9 +23,9 @@ else
         BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/btfmcodec.ko \
                             $(KERNEL_MODULES_OUT)/bt_fm_swr.ko
      endif
-     ifeq (,$(filter niobe anorak61 neo61 pitti seraph blair, $(TARGET_BOARD_PLATFORM)))
-        BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
-     endif
+     #ifeq (,$(filter niobe anorak61 neo61 pitti seraph blair, $(TARGET_BOARD_PLATFORM)))
+     #   BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
+     #endif
      BOARD_VENDOR_KERNEL_MODULES += $(BT_KERNEL_DRIVER)
   endif
 endif

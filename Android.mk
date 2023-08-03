@@ -6,16 +6,18 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(call is-board-platform-in-list,taro kalama pineapple blair pitti volcano niobe anorak61 neo61 seraph), true)
 
 BT_SELECT := CONFIG_MSM_BT_POWER=m
+
 ifneq ($(call is-board-platform-in-list, niobe anorak61 neo61 pitti taro blair kalama), true)
 BT_SELECT += CONFIG_BTFM_CODEC=m
 BT_SELECT += CONFIG_BTFM_SWR=m
 endif
 
-ifneq ($(call is-board-platform-in-list, niobe anorak61 neo61 pitti seraph blair), true)
-BT_SELECT += CONFIG_I2C_RTC6226_QCA=m
-endif
+#ifneq ($(call is-board-platform-in-list, niobe anorak61 neo61 pitti seraph blair), true)
+#BT_SELECT += CONFIG_I2C_RTC6226_QCA=m
+#endif
 
 BT_SELECT += CONFIG_BTFM_SLIM=m
+
 
 ifeq ($(TARGET_KERNEL_DLKM_SECURE_MSM_OVERRIDE), true)
 ifeq ($(ENABLE_PERIPHERAL_STATE_UTILS), true)
