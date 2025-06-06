@@ -5,7 +5,7 @@ ifeq ($(TARGET_USES_QMAA),true)
      ifeq ($(call is-board-platform-in-list,$(TARGET_BOARD_PLATFORM)),true)
            BT_KERNEL_DRIVER := $(KERNEL_MODULES_OUT)/btpower.ko
            ifeq (,$(filter seraph, $(TARGET_BOARD_PLATFORM)))
-             BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
+             #BT_KERNEL_DRIVER += $(KERNEL_MODULES_OUT)/radio-i2c-rtc6226-qca.ko
            endif
            ifeq ($(TARGET_USES_QMAA_OVERRIDE_BLUETOOTH_AUDIO), true)
              ifeq ($(call is-board-platform-in-list, sun canoe chora seraph), true)
