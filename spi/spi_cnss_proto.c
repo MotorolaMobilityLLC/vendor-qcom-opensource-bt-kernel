@@ -2349,6 +2349,12 @@ static void spi_cnss_remove(struct spi_device *spi)
 
 	spi_drv = spi_get_drvdata(spi);
 	SPI_CNSS_DBG(spi_drv, "%s PID =%d\n", __func__, current->pid);
+	if (spi_drv->irq > 0) {
+		disable_irq(spi_drv->irq);
+	}
+	if (spi_drv->bh_work_wq) {
+		cancel_work_sync(&spi_drv->bh_work);
+	}
 #ifdef CONFIG_SLEEP
 	pm_runtime_disable(spi_drv->dev);
 #endif
